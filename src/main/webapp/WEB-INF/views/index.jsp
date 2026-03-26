@@ -24,7 +24,7 @@
     if(friends != null){
         for(String s : friends){
 %>
-            <li><%= s %></li>
+            <li style="color:red;"><%= s %></li>
 <%
         }
     } else {

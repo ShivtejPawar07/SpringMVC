@@ -1,11 +1,13 @@
 package springmvc.controller;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -17,9 +19,9 @@ public class HomeController {
 		model.addAttribute("id",123);
 		
 		List<String>friends=new ArrayList<String>();
-		friends.add("qwe");
-		friends.add("asd");
-		friends.add("rty");
+		friends.add("Jolly Reddy");
+		friends.add("Black Reddy");
+		friends.add("Amol Reddy");
 		
 		model.addAttribute("f",friends);
 		return "index";
@@ -28,5 +30,21 @@ public class HomeController {
 	public String about() {
 		System.out.println("about Controller"); 
 		return "about";
+	}
+	@RequestMapping("/help")
+	public ModelAndView help() {
+		System.out.println("Help Controller");
+		//creating model and ciew object
+		ModelAndView mv=new ModelAndView();
+		
+		
+		//setting the data
+		mv.addObject("name","Shivtej");
+		mv.addObject("rno",7);
+		LocalDateTime ld=LocalDateTime.now();
+		  mv.addObject("time", ld); 
+				//setting the view name
+		mv.setViewName("help");
+		return mv;
 	}
 }
