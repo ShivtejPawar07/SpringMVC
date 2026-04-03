@@ -43,6 +43,18 @@ public class HomeController {
 		mv.addObject("rno",7);
 		LocalDateTime ld=LocalDateTime.now();
 		  mv.addObject("time", ld); 
+		  
+		  //marks
+		  
+		  List<Integer>al=new ArrayList<Integer>();
+		  al.add(100);
+		  al.add(200);
+		  al.add(300);
+		  al.add(400);
+		  al.add(500);
+		  
+		  mv.addObject("marks",al);
+		  
 				//setting the view name
 		mv.setViewName("help");
 		return mv;
